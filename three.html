@@ -1,0 +1,239 @@
+
+<html>
+    <head>
+    <style>
+    /* Use media queries to adjust the layout for different screen sizes */
+    @media only screen and (min-width: 600px) {
+      /* For desktops and laptops: */
+      .container {
+        display: flex; /* Use flexbox to create a two-column layout */
+        align-items: center; /* Align the items vertically to the center */
+        justify-content: center; /* Align the items horizontally to the center */
+      }
+      .form {
+        flex: 1; /* Take up half of the container width */
+        padding: 20px;
+        max-width: 500px; /* Limit the form width */
+        border: 1px solid #ccc; /* Add a border to the form */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the form */
+      }
+      .template {
+        flex: 1; /* Take up half of the container width */
+        padding: 20px;
+        max-width: 500px; /* Limit the template width */
+        border: 1px solid #ccc; /* Add a border to the template */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the template */
+        text-align: center; /* Align the email signature to the center */
+      }
+    }
+    
+    @media only screen and (max-width: 600px) {
+      /* For mobile phones: */
+      .container {
+        display: block; /* Use block layout to create a single-column layout */
+      }
+      .form {
+        width: 100%; /* Take up the full container width */
+        padding: 10px;
+        border: 1px solid #ccc; /* Add a border to the form */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the form */
+      }
+      .template {
+        width: 100%; /* Take up the full container width */
+        padding: 10px;
+        border: 1px solid #ccc; /* Add a border to the template */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the template */
+        text-align: center; /* Align the email signature to the center */
+      }
+    }
+    
+    /* Use a custom font for the form and template */
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Style the input elements */
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    
+    }
+    
+    input[type="file"] {
+      display: none;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2196F3;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #1A80C9;
+    }
+    
+    p {
+      margin: 5px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+      <div class="form" style="max-width: 400px;">
+        <h1>Your Information</h1>
+        <input type="text" id="name" name="name" placeholder="Name:"><br>
+        <input type="text" id="position" name="position" placeholder="Position/Work:"><br>
+        <input type="text" id="company" name="company" placeholder="Company:"><br>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number:"><br>
+        <input type="tel" id="telephone" name="telephone" placeholder="Telephone Number:"><br>
+        <input type="email" id="email" name="email" placeholder="Email:"><br>
+        <textarea id="address" name="address" rows="4" cols="50" placeholder="Address:"></textarea><br>
+        <button onclick="copySignature()">Copy Signature</button>
+      </div>
+      <div class="templates" style="display: flex;">
+      <div class="template 1" id="template1" style="min-width: 300px;">
+        
+        <div class="rSig">
+            <font style="line-height:0.5; font-family: -apple-system, BlinkMacSystemFont, 'Bahnscrhift', Arial, sans-serif">
+       <table width=""
+              border="0" 
+              cellspacing="0" 
+              cellpadding="0" 
+              style="display: inline-block; vertical-align:top">
+          <tr>
+             <td width="50"
+                 rowspan="4"
+                 style="padding: 25px">
+                <a href="https://www.rsi-visuals.com/" 
+                   target="_blank">
+                  <img src="https://rsi-visuals.com/images/logos/RSI_IconE.svg" width="64"></a>
+             </td>
+         </tr>
+       </table>
+      <table style="border-left: 1px solid #00B4EF; padding-left:10px; display: inline-block">
+        <tr>
+          <td>
+              
+            <p id="name-output" style="font-size:120%; color: #003E6A; margin-top: 0; font-weight: bold" ><strong>John Doe</strong></p>
+            <p id="position-output" style="color: #767171; margin-bottom: 10px">Very Important Person</></p>
+            <p id="company-output" style="color: #767171; margin-bottom: 10px">Company</p>
+          </td>
+        </tr>
+        <tr style="color: #767171;">
+          <td style="font-size: 85%">
+             <p id="telephone-output">
+               Office: +1 817 510-0350 xXXX
+            <p>
+             <p id="phone-output" style="margin-bottom: 0">
+               Mobile: +xx (xxx) xxx-xxx
+            </p>
+            <p id="address-output" style="margin-bottom: 0">
+              <a href="https://www.rsi-visuals.com" style="color: #767171">
+                Address
+              </a>
+            </p>
+            </td>
+        </tr>
+      </table>
+        </font>
+        
+      </div>
+      
+ </div>
+
+      </div>
+      
+    </div>
+    
+    
+    </div>
+    
+    <script>
+        // Get the form and template elements
+        var form = document.getElementById("form");
+        var template = document.getElementById("template");
+        // Get the input and output elements
+        var nameInput = document.getElementById("name");
+        var nameOutput = document.getElementById("name-output");
+        var positionInput = document.getElementById("position");
+        var positionOutput = document.getElementById("position-output");
+        var companyInput = document.getElementById("company");
+        var companyOutput = document.getElementById("company-output");
+        var phoneInput = document.getElementById("phone");
+        var phoneOutput = document.getElementById("phone-output");
+        var telephoneInput = document.getElementById("telephone");
+        var telephoneOutput = document.getElementById("telephone-output");
+        var emailInput = document.getElementById("email");
+        var emailOutput = document.getElementById("email-output");
+        var addressInput = document.getElementById("address");
+        var addressOutput = document.getElementById("address-output");
+        var imageInput = document.getElementById("image");
+        var imageOutput = document.getElementById("image-output");
+        
+        // Add event listeners to the input elements to update the output elements in real time
+        nameInput.addEventListener("input", function() {
+          nameOutput.textContent = nameInput.value;
+        });
+        
+        positionInput.addEventListener("input", function() {
+          positionOutput.textContent = positionInput.value;
+        });
+        
+        companyInput.addEventListener("input", function() {
+          companyOutput.textContent = companyInput.value;
+        });
+        
+        phoneInput.addEventListener("input", function() {
+          phoneOutput.textContent = phoneInput.value;
+        });
+        
+        telephoneInput.addEventListener("input", function() {
+          telephoneOutput.textContent = telephoneInput.value;
+        });
+        
+        emailInput.addEventListener("input", function() {
+          emailOutput.textContent = emailInput.value;
+        });
+        
+        addressInput.addEventListener("input", function() {
+          addressOutput.textContent = addressInput.value;
+        });
+        
+
+        function copySignature() {
+            const range = document.createRange();
+            range.selectNode(document.getElementById('template1'));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+    
+            try {
+                const successful = document.execCommand('copy');
+                const msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copy attempt was ' + msg);
+            } catch (err) {
+                console.log('Unable to copy:', err);
+            }
+    
+            window.getSelection().removeAllRanges();
+            alert("Signature copied to clipboard!");
+        }
+        </script>
+    </body>
+    </html>
+    

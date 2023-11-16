@@ -1,0 +1,241 @@
+<html>
+    <head>
+    <style>
+    /* Use media queries to adjust the layout for different screen sizes */
+    @media only screen and (min-width: 600px) {
+      /* For desktops and laptops: */
+      .container {
+        display: flex; /* Use flexbox to create a two-column layout */
+        align-items: center; /* Align the items vertically to the center */
+        justify-content: center; /* Align the items horizontally to the center */
+      }
+      .form {
+        flex: 1; /* Take up half of the container width */
+        padding: 20px;
+        max-width: 500px; /* Limit the form width */
+        border: 1px solid #ccc; /* Add a border to the form */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the form */
+      }
+      .template {
+        flex: 1; /* Take up half of the container width */
+        padding: 20px;
+        max-width: 500px; /* Limit the template width */
+        border: 1px solid #ccc; /* Add a border to the template */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the template */
+        text-align: center; /* Align the email signature to the center */
+      }
+    }
+    
+    @media only screen and (max-width: 600px) {
+      /* For mobile phones: */
+      .container {
+        display: block; /* Use block layout to create a single-column layout */
+      }
+      .form {
+        width: 100%; /* Take up the full container width */
+        padding: 10px;
+        border: 1px solid #ccc; /* Add a border to the form */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the form */
+      }
+      .template {
+        width: 100%; /* Take up the full container width */
+        padding: 10px;
+        border: 1px solid #ccc; /* Add a border to the template */
+        border-radius: 10px; /* Make the border rounded */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow to the template */
+        text-align: center; /* Align the email signature to the center */
+      }
+    }
+    
+    /* Use a custom font for the form and template */
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Style the input elements */
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    
+    }
+    
+    input[type="file"] {
+      display: none;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2196F3;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #1A80C9;
+    }
+    
+    p {
+      margin: 5px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+      <div class="form" style="max-width: 400px;">
+        <h1>Your Information</h1>
+        <input type="text" id="name" name="name" placeholder="Name:"><br>
+        <input type="text" id="position" name="position" placeholder="Position/Work:"><br>
+        <input type="text" id="company" name="company" placeholder="Company:"><br>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number:"><br>
+        <input type="tel" id="telephone" name="telephone" placeholder="Telephone Number:"><br>
+        <input type="email" id="email" name="email" placeholder="Email:"><br>
+        <textarea id="address" name="address" rows="4" cols="50" placeholder="Address:"></textarea><br>
+        <button onclick="copySignature()">Copy Signature</button>
+      </div>
+      
+          <article class="message is-primary" id="template1" style="border: 2px solid rgb(97, 188, 0); border-radius: 5px; width: 250px; padding: 10px">
+            <div class="message-body" id="signature_container">
+              <table cellspacing="0" cellpadding="0" id="signature">
+                <tbody>
+                  <tr>
+                    <td style="padding-left:10px; color:rgb(85, 85, 85); font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;" colspan="2">
+                      <span class="name" id="name-output" style="color:rgb(97, 188, 0); font-weight:bold;">
+                        Name
+                      </span>
+                      <br>
+                      <span class="position" id="position-output">
+                          Specialist in...
+                        </span>
+                      <br>
+                      <div id="phone-output" >+9282727832</div>
+                      <div id="telephone-output" ></div>
+                      <div id="address-output">Address</div>
+                      <span style="white-space:nowrap">
+                          <a class="email" id="email-output" href="mailto:name@gmail.com" style="color:rgb(85, 85, 85); text-decoration:none;">
+                            name@gmail.com
+                          </a>
+                        </span>
+                      <br>
+                      <br>
+                      <span style="white-space:nowrap" id="logoWrap">
+                          <img src="" class="logo">
+                      </span>
+                      <div id="imageWrap"></div>
+                      <hr>
+                    </td>
+                  </tr>
+                  <tr>
+                    <img src="/neo-logo-svgrepo-com.svg" width="50px" alt="logoimg">
+                    <td style="padding-left:10px;white-space:nowrap;vertical-align: middle;">
+                      
+                      <font size="4" color="gray" face="Arial">Follow us:&nbsp;</font>
+                      <span class="Apple-converted-space"></span>
+                    </td>
+                    <td style="vertical-align: middle;">
+                      <a style="text-decoration: none; color: transparent; margin-top: 5px;" class="facebook"
+                         href="https://www.facebook.com/maxpayltd/"><img shrinktofit="true"
+                                                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAntJREFUSIm1Vs9LG2EQfTP5gbRBEIqwuRQ96mn1I6iHgHtIkd4slJQiPfZeRHv0au5CDz1WVPCUP8CTpCBkF7H24qWVkoVKTokgJt9MD0lD/LFZFX2nb2ffvDd87MwsYQCMMeMiUgQwr6qTAF4AADOfqepPAHvW2q3Dw8NfURp0WzCXy4212+0SES0C4EFFABAAuyKyEgTB71gDY8yStfYLMz+LEb6Oc1X96Pv+Zn8w0f8wPT29CmCDiFL3FAeANBEtOo7TDMPw+w0DY8wSgI0HCF8BERUcxzkJw/AI6F5RLpcba7VaP+KuJZ/Pw/M8ZDIZEBHW1tbQaDRuozYBTFar1dMkAFhr1+PEPc9DqVS6Ekun01H0jKquA3iXNMaMq+qbQeIAUCgUeuf9/X3U63VcXFxE8onoreu6n5MiUiSiuE8Rw8PDvfPy8jLa7XZcCjNzMQlgfhBraGgIMzMzGBkZ6cXy+TxEBJVKBZeXl5G5IuKR67o1ZnaiSNlsFuVy+UZcVTE3N4dWqxVpoKp/kui2/30gIqjX6wPFAYCIRmPvvlarwRiDg4ODXmx2dhYLCwt3KoaZ+exOzAdAVf9ydyo+CYjomAHsPZUBgD221m6hM3IfFSJiAWxzd1nsPrYBgJ3eLBKRFWZ+DeB5FDsIAjSbTQCdHhgEEWmkUqlVoG/hTE1NvSeib49QOUSkGATBDtC3D8IwPHIc55yICtGpd8In3/e//n+4stHCMKw4jnNCRK8ARM7iiKobqvqhX/yGQdfkKJvNbqqqQ0QTiPgx6BO2qrqdSCQWfd+vXH8/MNl13ZfMXBQRj4gmiGgU6HQoER2j00Pb1Wr1NErjHyqaA0C/6zMuAAAAAElFTkSuQmCC"
+                                                                         height="24" width="24"></a>
+                      <span class="Apple-converted-space">&nbsp;</span>
+                      <a style="text-decoration: none; color: transparent; margin-top: 5px;" class="twitter"
+                         href="https://twitter.com/maxpay_ltd"><img shrinktofit="true"
+                                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAydJREFUSImtljtIHFEUhv9z9wEmsdElcEUwsRBxi0V2mEYsksAGprQIQsjGJgTEKkUiYmchSWEXELKWeYipLGyEYJXA4s4oZkVcIklYHN0UPrI7ze7ckyJrmH3Mbl5/d8859/vv3LnnzhBaSNO0fqXUOIAbzBwFEAEAIcQ3Zt4F8M513dfb29uf/RjULKjr+vVKpfKMiMYAiFaLAKAAvFVKPbYs60tbA03T7rmuuyiEuNQGXK8SMz80TfOlNxjwDuLx+BMAz4ko9IdwAAgT0ZiUsmjb9ocGA03T7gF4/hfgGhFRQkqZs217B6huka7r18vl8se/2BY/FQFEM5nMVwEArus+/RO4rutIJpMYGRkBAASDQXR0dHhLrjDzUwAgTdP6mTkHz2kJh8OYnZ3F3NwcyuVyDXxqagoTExO/xtlsFqVSCdPT0zg/P/eWKqVUv6ie85qjGIlEYBgGFhcX0dvb+yve3d2NZDJZYxiNRiGlRCQSqX9QIYQYDwK4UZ85OjpCoVBALBbDysoK1tfXsbGxAWaGEI1tkUqlcHBw0BBXSt0MMnOUqLYdurq6sLW1hUQigVAoBMMwYBhGA+BC+Xy+aZyIhgSq7e/V6ekpNE3zBXrlui5yuZyfwdWm10ClUsHMzAxOTk7aGmxubsJxHN+8EEJ8a5bY3d3F2dlZW4OlpSXfHDMXRPVWbJDjOFhYWMDx8bEvYHl5GaZp+uaJKBuQUvYS0a1mBYVCAY7jQNd1BAI11xbW1tYwPz8PZvY1APCCYrHYtWAw+AmeXujr68Pk5CRGR0cRDodrZhweHiKVSmF1dbUVGEopVwjRTwAQj8eXAdypLxoYGMDg4CA6OztRLBaxv7+Pvb29dqu+MHhlWdZdAoDh4eE+IUQWwOW2M39DSqnvoVBoKJ1O5wUAWJb1hZkf/g94VQ/S6XQe8HwPbNvekVKWiCjxj/BHpmmmLgY1R8O27fdSyhwR3QYQbpjaQkqp78x83wtvMKia7PT09LxkZklEQ/D5MfCAXWZ+EwgExkzTfF+fbzm5+vLHlVI3iWiIiK4CPzuUiLIA3gF4k8lkvvoxfgDSV0LXn9z6+gAAAABJRU5ErkJggg=="
+                                                                    height="24" width="24"></a>
+                      <span class="Apple-converted-space">&nbsp;</span>
+                      <a style="text-decoration: none; color: transparent; margin-top: 5px;" class="linkedin"
+                         href="https://www.linkedin.com/company/maxpay-ltd"><img shrinktofit="true"
+                                                                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAu5JREFUSIm1ls9LW1kUxz/nvhjEKoJI8AUhTBYR7Crm4cJdu2j3KtUiZUAYCy5cuOj8A9l09oVZqDtHC113kYULFxUDvocGuynoJAaeWhRKrT8g795ZGMPTaFJnnO/q3nPu/X7Pufee857QAI7jJLXW48ATY8xjoBtAKfXVGPMZWAmCYGlzc/PvuzjkNuPg4OAvlUrlDxEZBlSjIAANfNBav/E8r9hUwHGcV0EQ/KmUamtCfBM/jDGvXdddDBut8CSTyfwOvBORlnuSA0RFZNi27RPf99fqBBzHeQW8+xfE1yAiz2zb/uL7fqEmUD3zj+HIJycnGRsbY29vj6Ojo/uKPI/H44u+73+LAARB8DZ85qlUiunpaQDa2tqYmZm5byLtxpi3wEvlOE4SGAl7y+UypVIJrTVra2u3UzTP4kU6nU5EtNbjInLtKZ6enjI6Oko0GuX8/LwRCcaYu9xKKTUeAZ7c9HR0dDA/Pw9ALpdjbm6OhYUF2tvbKRQKHBwcMDExQWtrK+vr62SzWQ4PD+sUtNZPI8aYxyLXy8GyLJLJJACxWAyARCJBZ2cnvb29RKPR2tqhoSGy2SxTU1O3ZdivqJb/z0IpxezsLCMjI+zs7AAwMDBAd3c9jYjEmrWBOmxtbbG6ukqxWCSXy9XsV5neEpD6eh+BSqVSG19cXNTGlmXVrTXGHKpqV2yKm/f0k3u2FbDyfwkAKyoIgiUuW+6DQmsdAMsCkMlk3gMvrpyWZdHX1wfA8fEx+/v7pFIpIpEIJycnlEolALq6uujp6QFgd3eXs7OzsMBfnudNCEA6nU4opbaBRw8U/feWlpb+fD5fVgCe5xWNMa8fgryK3/L5fBlC3wPf9wu2bf8QkWf/kXzWdd25q8m1x+v7/ifbtr+IyHMgWre1AbTW340xv4bJ6wSqIoV4PL5ojLFFpJ87fgxCxIExZtmyrGHXdT/d9DfcXL38ca31UxHpF5EYXFaoiGxzWUPLGxsbpbs4/gFuwSExY5oOzAAAAABJRU5ErkJggg=="
+                                                                                 height="24" width="24"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+  
+  <script>
+    
+    // Get the form and template elements
+    var form = document.getElementById("form");
+    var template = document.getElementById("template");
+    // Get the input and output elements
+    var nameInput = document.getElementById("name");
+    var nameOutput = document.getElementById("name-output");
+    var positionInput = document.getElementById("position");
+    var positionOutput = document.getElementById("position-output");
+    var companyInput = document.getElementById("company");
+    var companyOutput = document.getElementById("company-output");
+    var phoneInput = document.getElementById("phone");
+    var phoneOutput = document.getElementById("phone-output");
+    var telephoneInput = document.getElementById("telephone");
+    var telephoneOutput = document.getElementById("telephone-output");
+    var emailInput = document.getElementById("email");
+    var emailOutput = document.getElementById("email-output");
+    var addressInput = document.getElementById("address");
+    var addressOutput = document.getElementById("address-output");
+    var imageInput = document.getElementById("image");
+    var imageOutput = document.getElementById("image-output");
+    
+    // Add event listeners to the input elements to update the output elements in real time
+    nameInput.addEventListener("input", function() {
+      nameOutput.textContent = nameInput.value;
+    });
+    
+    positionInput.addEventListener("input", function() {
+      positionOutput.textContent = positionInput.value;
+    });
+    
+    companyInput.addEventListener("input", function() {
+      companyOutput.textContent = companyInput.value;
+    });
+    
+    phoneInput.addEventListener("input", function() {
+      phoneOutput.textContent = phoneInput.value;
+    });
+    
+    telephoneInput.addEventListener("input", function() {
+      telephoneOutput.textContent = telephoneInput.value;
+    });
+    
+    emailInput.addEventListener("input", function() {
+      emailOutput.textContent = emailInput.value;
+    });
+    
+    addressInput.addEventListener("input", function() {
+      addressOutput.textContent = addressInput.value;
+    });
+    
+    function copySignature() {
+      const range = document.createRange();
+      range.selectNode(document.getElementById('template1'));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+
+      try {
+          const successful = document.execCommand('copy');
+          const msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copy attempt was ' + msg);
+      } catch (err) {
+          console.log('Unable to copy:', err);
+      }
+
+      window.getSelection().removeAllRanges();
+      alert("Signature copied to clipboard!");
+  }
+
+  </script>
+
+  </html>

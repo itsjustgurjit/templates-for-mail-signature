@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Signature Templates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(200, 218, 214);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .template-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            align-items: flex-start; /* Updated property */
+        }
+        
+        .template-box {
+            width: 400px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .template-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        
+        .template-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .template-box {
+                width: 100%;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <h1>Select template for email signature</h1>
+
+    <div class="template-container">
+        <a href="/one.html" class="template-box">
+            <img src="images/one.png" alt="Template 1">
+        </a>
+        <a href="two.html" class="template-box">
+            <img src="images/two.png" alt="Template 2">
+        </a>
+        <a href="three.html" class="template-box">
+            <img src="images/three.png" alt="Template 3">
+        </a>
+        <a href="four.html" class="template-box">
+            <img src="images/four.png" alt="Template 4">
+        </a>
+        <a href="five.html" class="template-box">
+            <img src="images/five.png" alt="Template 5">
+        </a>
+        
+    </div>
+
+</body>
+</html>
